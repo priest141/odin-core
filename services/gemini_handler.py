@@ -50,7 +50,7 @@ class TacticalAIAnalyzer:
 
         # Usando o modelo Flash por ser mais rápido e eficiente para tarefas repetitivas
         self.model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash", 
+            model_name=settings.GEMINI_MODEL, 
             generation_config=self.generation_config,
             system_instruction=self.system_instruction
         )
