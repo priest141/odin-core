@@ -6,20 +6,14 @@ from config import settings
 
 class PostgresTacticalDB:
     def __init__(self):
-        self.db_params = {
-            "dbname": settings.DB_NAME,
-            "user": settings.DB_USER,
-            "password": settings.DB_PASSWORD,
-            "host": settings.DB_HOST,
-            "port": settings.DB_PORT
-        }
+        self.db_url = settings.DB_URL
         self.conn = None
         self._connect()
         self._init_schema()
 
     def _connect(self):
         try:
-            self.conn = psycopg2.connect(**self.db_params)
+            self.conn = psycopg2.connect(self.db_url)
             self.conn.autocommit = True
             logger.info("🟢 Conectado ao PostgreSQL (CIV-INT DB).")
         except Exception as e:
