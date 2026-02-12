@@ -8,8 +8,8 @@ load_dotenv()
 class Config:
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
     QUEUE_NAME: str = os.getenv("QUEUE_NAME", "raw_alerts_queue")
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "dummy-key")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
     
     # Database Config
     DB_NAME: str = os.getenv("DB_NAME", "civint_db")
