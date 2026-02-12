@@ -10,6 +10,6 @@ class Config:
     QUEUE_NAME: str = os.getenv("QUEUE_NAME", "raw_alerts_queue")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
-    DB_URL: str = os.getenv("DB_URL", "")
+    DB_URL: str = os.getenv("DATABASE_URL", "")
 
 settings = Config()
