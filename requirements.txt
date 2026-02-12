@@ -1,0 +1,5 @@
+redis
+loguru
+python-dotenv
+psycopg2-binary
+google-generativeai
