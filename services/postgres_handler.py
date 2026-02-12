@@ -7,18 +7,6 @@ from config import settings
 class PostgresTacticalDB:
     def __init__(self):
         self.db_url = settings.DB_URL
-
-        # DEBUG TÁTICO: Vamos ver o que o Odin está enxergando
-        if self.db_url:
-            # Mascara a senha para não vazar nos logs do Railway
-            safe_url = re.sub(r':([^@]+)@', ':****@', self.db_url)
-            logger.info(f"🔌 Tentando conectar em: {safe_url}")
-        else:
-            logger.error("❌ A variável DATABASE_URL está vazia ou None!")
-            # Em produção no Railway, não devemos usar localhost como fallback.
-            # É melhor falhar explicitamente para você saber que a config está errada.
-            raise ValueError("DATABASE_URL is missing in Railway Environment")
-            
         self.conn = None
         self._connect()
         self._init_schema()
